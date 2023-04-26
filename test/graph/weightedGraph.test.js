@@ -13,6 +13,6 @@ describe("weightedGraph", () => {
 
         graph.removeNode("C");
 
-        graph.print();
+        //graph.print();
     });
 });

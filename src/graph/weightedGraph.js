@@ -1,11 +1,11 @@
-class Node {
+class _Node {
     constructor(label) {
         this.label = label;
         this.edges = [];
     }
 
     addEdge(toNode, weight) {
-        this.edges.push(new Edge(this, toNode, weight));
+        this.edges.push(new _Edge(this, toNode, weight));
     }
 
     removeEdge(toNode) {
@@ -14,7 +14,7 @@ class Node {
     }
 }
 
-class Edge {
+class _Edge {
     constructor(fromNode, toNode, weight) {
         this.fromNode = fromNode;
         this.toNode = toNode;
@@ -28,7 +28,7 @@ class WeightedGraph {
     }
 
     addNode(label) {
-        this.nodes.set(label, new Node(label));
+        this.nodes.set(label, new _Node(label));
     }
 
     removeNode(label) {

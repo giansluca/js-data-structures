@@ -20,6 +20,6 @@ describe("graph", () => {
         graph.removeEdge("A", "B");
         graph.removeNode("B");
 
-        graph.print();
+        //graph.print();
     });
 });

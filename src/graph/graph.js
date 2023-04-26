@@ -1,6 +1,6 @@
-const { Queue } = require("../queue/queue");
+const { Queue } = require("../queue/Queue");
 
-class Node {
+class _Node {
     constructor(label) {
         this.label = label;
     }
@@ -13,7 +13,7 @@ class Graph {
     }
 
     addNode(label) {
-        const node = new Node(label);
+        const node = new _Node(label);
         this.nodes.set(label, node);
         this.adjacencyList.set(node, []);
     }
