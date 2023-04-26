@@ -1,0 +1,19 @@
+{
+    "name": "knight-shortest-path",
+    "version": "1.0.0",
+    "description": "",
+    "main": "knightSolver.js",
+    "scripts": {
+        "start": "node ./src/knightSolver.js",
+        "test": "jest ./test --detectOpenHandles",
+        "lint": "eslint src"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.38.0",
+        "jest": "^29.5.0",
+        "prettier": "^2.8.7"
+    }
+}
