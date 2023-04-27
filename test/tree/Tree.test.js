@@ -3,7 +3,7 @@ const Tree = require("../../src/tree/Tree");
 describe("tree", () => {
     const tree = new Tree();
 
-    it("should should have a root after adding a node ", () => {
+    it("should should have add a root node ", () => {
         // Given - When
         tree.addNode(5);
 
@@ -11,43 +11,56 @@ describe("tree", () => {
         expect(tree.root.data).toBe(5);
     });
 
-    it("should have add a left to the root after adding a lesser node ", () => {
-        // Given - When
+    describe("after adding a lesser node", () => {
+        it("should have add a left node to the root", () => {
+            // Given - When
+            tree.addNode(3);
 
-        tree.addNode(3);
+            //Then
+            expect(tree.root.data).toBe(5);
+            expect(tree.root.left.data).toBe(3);
+        });
 
-        //Then
-        expect(tree.root.data).toBe(5);
-        expect(tree.root.left.data).toBe(3);
+        it("should have add to the left node", () => {
+            // Given - When
+            tree.addNode(2);
+
+            //Then
+            expect(tree.root.left.left.data).toBe(2);
+        });
+
+        it("should have add again to the left node", () => {
+            // Given - Whe
+            tree.addNode(4);
+
+            //Then
+            expect(tree.root.left.right.data).toBe(4);
+        });
     });
 
-    it("should have add to the left node after adding another lesser node ", () => {
-        // Given - When
+    describe("after adding a greater node", () => {
+        it("should have add a right node to the root", () => {
+            // Given - When
+            tree.addNode(7);
 
-        tree.addNode(2);
+            //Then
+            expect(tree.root.right.data).toBe(7);
+        });
 
-        //Then
-        expect(tree.root.data).toBe(5);
-        expect(tree.root.left.left.data).toBe(2);
-    });
+        it("should have add to the left node", () => {
+            // Given - When
+            tree.addNode(6);
 
-    it("should have add to the left node after adding again another lesser node ", () => {
-        // Given - When
+            //Then
+            expect(tree.root.right.left.data).toBe(6);
+        });
 
-        tree.addNode(4);
+        it("should have add to the right node", () => {
+            // Given - When
+            tree.addNode(8);
 
-        //Then
-        expect(tree.root.data).toBe(5);
-        expect(tree.root.left.right.data).toBe(4);
-    });
-
-    it("should have add a right to the root after adding a grater node ", () => {
-        // Given - When
-
-        tree.addNode(7);
-
-        //Then
-        expect(tree.root.data).toBe(5);
-        expect(tree.root.right.data).toBe(7);
+            //Then
+            expect(tree.root.right.right.data).toBe(8);
+        });
     });
 });

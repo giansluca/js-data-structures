@@ -19,11 +19,26 @@ class Tree {
             return;
         }
 
-        if (node.data < this.root.data) this.root.left = node;
-        else if (node.data > this.root.data) this.root.right = node;
+        this._addNode(this.root, node);
     }
 
-    _addNode(parent, child) {}
+    _addNode(parent, child) {
+        if (child.data > parent.data) {
+            if (parent.right == null) {
+                parent.right = child;
+                return;
+            } else {
+                return this._addNode(parent.right, child);
+            }
+        } else if (child.data < parent.data) {
+            if (parent.left == null) {
+                parent.left = child;
+                return;
+            } else {
+                return this._addNode(parent.left, child);
+            }
+        }
+    }
 }
 
 module.exports = Tree;
