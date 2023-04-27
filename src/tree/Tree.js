@@ -39,6 +39,10 @@ class Tree {
             }
         }
     }
+
+    hasNode(data) {
+        // TODO
+    }
 }
 
 module.exports = Tree;
