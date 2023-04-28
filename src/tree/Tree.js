@@ -40,8 +40,18 @@ class Tree {
         }
     }
 
-    hasNode(data) {
-        // TODO
+    hasNode(dataToFind) {
+        if (dataToFind === this.root.data) return true;
+
+        return this._hasNode(this.root, dataToFind);
+    }
+
+    _hasNode(parent, dataToFind) {
+        if (parent == null) return false;
+
+        if (dataToFind == parent.data) return true;
+        if (dataToFind > parent.data) return this._hasNode(parent.right, dataToFind);
+        else if (dataToFind < parent.data) return this._hasNode(parent.left, dataToFind);
     }
 }
 
