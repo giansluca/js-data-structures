@@ -1,4 +1,4 @@
-const { Queue } = require("./data-structure/queue");
+const { Queue } = require("./queue/Queue");
 
 class Node {
     constructor(x, y, dist) {
