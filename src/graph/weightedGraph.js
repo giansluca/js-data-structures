@@ -72,7 +72,7 @@ class WeightedGraph {
             console.log(
                 node.label,
                 " -> ",
-                edges.map((e) => `${e.fromNode.label} => ${e.toNode.label} - ${e.weight}`)
+                edges.map((e) => `${e.fromNode.label} => ${e.toNode.label} - ${e.weight}`),
             );
         }
     }

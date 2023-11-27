@@ -114,7 +114,7 @@ class Graph {
             console.log(
                 source.label,
                 " -> ",
-                targets.map((n) => n.label)
+                targets.map((n) => n.label),
             );
         }
     }
