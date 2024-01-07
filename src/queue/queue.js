@@ -17,6 +17,10 @@ class Queue {
         return this.items[0];
     }
 
+    contains(item) {
+        return this.items.includes(item);
+    }
+
     isEmpty() {
         return this.items.length === 0;
     }

@@ -4,10 +4,10 @@ describe("tree", () => {
     const tree = new Tree();
 
     it("should should have add a root node ", () => {
-        // Given - When
+        // given - when
         tree.addNode(5);
 
-        //Then
+        //then
         expect(tree.root.data).toBe(5);
         expect(tree.hasNode(5)).toBeTruthy();
         expect(tree.hasNode(4)).toBeFalsy();
@@ -15,30 +15,30 @@ describe("tree", () => {
 
     describe("after adding a lesser node", () => {
         it("should have add a left node to the root", () => {
-            // Given - When
+            // given - when
             tree.addNode(3);
 
-            //Then
+            //then
             expect(tree.root.left.data).toBe(3);
             expect(tree.hasNode(3)).toBeTruthy();
             expect(tree.hasNode(4)).toBeFalsy();
         });
 
         it("should have add to the left node", () => {
-            // Given - When
+            // given - when
             tree.addNode(2);
 
-            //Then
+            //then
             expect(tree.root.left.left.data).toBe(2);
             expect(tree.hasNode(2)).toBeTruthy();
             expect(tree.hasNode(4)).toBeFalsy();
         });
 
         it("should have add again to the left node", () => {
-            // Given - Whe
+            // given - whe
             tree.addNode(4);
 
-            //Then
+            //then
             expect(tree.root.left.right.data).toBe(4);
             expect(tree.hasNode(4)).toBeTruthy();
         });
@@ -46,28 +46,28 @@ describe("tree", () => {
 
     describe("after adding a greater node", () => {
         it("should have add a right node to the root", () => {
-            // Given - When
+            // given - when
             tree.addNode(7);
 
-            //Then
+            //then
             expect(tree.root.right.data).toBe(7);
             expect(tree.hasNode(7)).toBeTruthy();
         });
 
         it("should have add to the left node", () => {
-            // Given - When
+            // given - when
             tree.addNode(6);
 
-            //Then
+            //then
             expect(tree.root.right.left.data).toBe(6);
             expect(tree.hasNode(6)).toBeTruthy();
         });
 
         it("should have add to the right node", () => {
-            // Given - When
+            // given - when
             tree.addNode(8);
 
-            //Then
+            //then
             expect(tree.root.right.right.data).toBe(8);
             expect(tree.hasNode(8)).toBeTruthy();
         });

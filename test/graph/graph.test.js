@@ -2,7 +2,7 @@ const { Graph } = require("../../src/graph/graph");
 
 describe("graph", () => {
     it("should print the graph", () => {
-        // Given - When - Then
+        // given - when - then
         const graph = new Graph();
 
         const labels = ["A", "B", "C", "D", "E", "F", "Z"];
@@ -16,6 +16,8 @@ describe("graph", () => {
         graph.addEdge("E", "F");
         graph.addEdge("E", "C");
         graph.addEdge("C", "F");
+
+        //graph.print();
 
         graph.removeEdge("A", "B");
         graph.removeNode("B");

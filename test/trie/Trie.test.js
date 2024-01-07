@@ -3,54 +3,54 @@ const TrieNode = require("../../src/trie/TrieNode");
 
 describe("Trie", () => {
     it("should have a root trie node", () => {
-        // Given - When
+        // given - when
         const trie = new Trie("A");
 
-        // Then
+        // then
         expect(trie.root).toBeInstanceOf(TrieNode);
     });
 
     describe("with a single word", () => {
         it("should connect the root to the first letter", () => {
-            // Given
+            // given
             const trie = new Trie();
             trie.insert("HEY");
 
-            // When
+            // when
             const firstNode = trie.root.children["H"];
 
-            // Then
+            // then
             expect(firstNode.key).toBe("H");
             expect(firstNode.children["E"]).toBeDefined();
             expect(firstNode.isWord).toBeFalsy();
         });
 
         it("should connect the root to the second letter", () => {
-            // Given
+            // given
             const trie = new Trie();
             trie.insert("HEY");
 
-            // When
+            // then
             const firstNode = trie.root.children["H"];
             const secondNode = firstNode.children["E"];
 
-            // Then
+            // when
             expect(secondNode.key).toBe("E");
             expect(secondNode.children["Y"]).toBeDefined();
             expect(secondNode.isWord).toBeFalsy();
         });
 
         it("should connect the root to the third letter", () => {
-            // Given
+            // given
             const trie = new Trie();
             trie.insert("HEY");
 
-            // When
+            // when
             const firstNode = trie.root.children["H"];
             const secondNode = firstNode.children["E"];
             const thirdNode = secondNode.children["Y"];
 
-            // Then
+            // then
             expect(thirdNode.key).toBe("Y");
             expect(Object.keys(thirdNode.children).length).toBe(0);
             expect(thirdNode.isWord).toBeTruthy();
@@ -58,7 +58,7 @@ describe("Trie", () => {
     });
 
     describe("with three words", () => {
-        // Given
+        // given
         let trie = new Trie();
         let words = ["helipad", "hello", "hermit"];
 
@@ -66,14 +66,14 @@ describe("Trie", () => {
         trie.insert("hello");
         trie.insert("hermit");
 
-        // When
+        // when
         words.forEach((word) => {
             describe(`for ${word}`, () => {
                 it("should connect to the final letter", () => {
                     const splitWord = word.split("");
                     const finalNode = splitWord.reduce((node, letter) => node.children[letter], trie.root);
 
-                    // Then
+                    // then
                     expect(finalNode).toBeDefined();
                     expect(finalNode.isWord).toBeTruthy();
                 });
@@ -83,20 +83,20 @@ describe("Trie", () => {
 
     describe("with a single word, searching", () => {
         it("should properly detect words that are contained", () => {
-            // Given - When
+            // given - when
             const trie = new Trie();
             trie.insert("hey");
 
-            // Then
+            // then
             expect(trie.contains("hey")).toBeTruthy();
         });
 
         it("should properly detect words that are not contained", () => {
-            // Given - When
+            // given - when
             const trie = new Trie();
             trie.insert("hey");
 
-            // Then
+            // then
             expect(trie.contains("hello")).toBeFalsy();
             expect(trie.contains("he")).toBeFalsy();
             expect(trie.contains("hi")).toBeFalsy();
